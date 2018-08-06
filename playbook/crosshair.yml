@@ -1,0 +1,26 @@
+---
+
+- name: Install Crosshair
+  hosts: localhost
+  tasks:
+
+  # Ensure that Debian packages are up-to-date.
+  - name: Update Debian packages list
+    apt:
+      upgrade: safe
+      update_cache: yes
+    become: yes
+
+  # Install Debian packages which provide core functionality.
+  - name: Install core Debian packages
+    apt:
+      name: "{{ item }}"
+    with_items:
+      - rsync    # Required for Crosshair installation with Ansible.
+    become: yes
+
+  # Copy dotfiles to home directory.
+  - name: Copy dotfiles
+    synchronize:
+      src: ../files/dotfiles/
+      dest: "~"
