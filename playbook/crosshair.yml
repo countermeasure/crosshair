@@ -17,6 +17,12 @@
       name: "{{ item }}"
     with_items:
       - rsync    # Required for Crosshair installation with Ansible.
+      - ufw    # Firewall.
+    become: yes
+
+  # Enable the firewall.
+  - name: Enable UFW
+    shell: ufw enable
     become: yes
 
   # Copy dotfiles to home directory.
