@@ -16,9 +16,23 @@
     apt:
       name: "{{ item }}"
     with_items:
+      - cabal-install    # Required to install Haskell packages.
+      - libx11-dev    # Required for Cabal to install xmonad.
+      - libxft-dev    # Required for Cabal to install xmonad-contrib.
+      - libxinerama-dev    # Required for Cabal to install xmonad.
+      - libxrandr-dev    # Required for Cabal to install xmonad.
+      - libxss-dev    # Required for Cabal to install xmonad.
       - rsync    # Required for Crosshair installation with Ansible.
       - ufw    # Firewall.
+      - xorg    # X environment.
     become: yes
+
+  # Install Haskell packages for Xmonad using Cabal.
+  - name: Install Haskell packages
+    shell: >
+        cabal update &&
+        cabal install xmonad-0.14 &&
+        cabal install xmonad-contrib-0.14
 
   # Enable the firewall.
   - name: Enable UFW

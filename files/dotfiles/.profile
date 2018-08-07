@@ -22,6 +22,14 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # add other directories to PATH
+if [ -d "$HOME/.cabal/bin" ] ; then
+    PATH="$HOME/.cabal/bin:$PATH"
+fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+
+# start the X server
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec startx
 fi
