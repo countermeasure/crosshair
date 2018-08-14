@@ -16,7 +16,10 @@
     apt:
       name: "{{ item }}"
     with_items:
+      - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
+      - libasound2-dev    # Requied for Cabal to install xmobar.
+      - libiw-dev    # Required for Cabal to install xmobar.
       - libx11-dev    # Required for Cabal to install xmonad.
       - libxft-dev    # Required for Cabal to install xmonad-contrib.
       - libxinerama-dev    # Required for Cabal to install xmonad.
@@ -27,12 +30,17 @@
       - xorg    # X environment.
     become: yes
 
-  # Install Haskell packages for Xmonad using Cabal.
+  # Install Haskell packages for Xmonad using Cabal. Xmonad 0.14 and
+  # xmonad-contrib 0.14 are the latest versions of those packages. Xmobar 0.26
+  # is not the latest version of that package, but it is the latest version
+  # which can be installed with GHC 8.0.1, the version of GHC provided by
+  # Debian Stretch.
   - name: Install Haskell packages
     shell: >
         cabal update &&
         cabal install xmonad-0.14 &&
-        cabal install xmonad-contrib-0.14
+        cabal install xmonad-contrib-0.14 &&
+        cabal install xmobar-0.26 -f with_iwlib -f with_xft
 
   # Enable the firewall.
   - name: Enable UFW

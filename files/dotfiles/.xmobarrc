@@ -1,0 +1,4 @@
+Config
+    { template = "%date%"
+    , commands = [ Run Date "%a %d %b" "date" 10 ]
+    }
