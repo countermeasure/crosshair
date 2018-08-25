@@ -18,6 +18,7 @@
     with_items:
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
+      - fwupd    # Firmware updater.
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
       - libx11-dev    # Required for Cabal to install xmonad.
