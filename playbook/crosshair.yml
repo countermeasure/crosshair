@@ -53,3 +53,14 @@
     synchronize:
       src: ../files/dotfiles/
       dest: "~"
+
+  # Copy user-dirs.default file to /etc/xdg/ directory.
+  - name: Copy user-dirs.defaults
+    copy:
+      src: ../files/systemfiles/user-dirs.defaults
+      dest: /etc/xdg/user-dirs.defaults
+    become: yes
+
+  # Create or recreate XDG user directories.
+  - name: Create/recreate user directories
+    shell: xdg-user-dirs-update --force
