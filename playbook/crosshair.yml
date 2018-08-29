@@ -26,6 +26,9 @@
       - libxinerama-dev    # Required for Cabal to install xmonad.
       - libxrandr-dev    # Required for Cabal to install xmonad.
       - libxss-dev    # Required for Cabal to install xmonad.
+      - network-manager    # Network manager.
+      - network-manager-gnome    # NetworkManager GUI.
+      - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
       - rsync    # Required for Crosshair installation with Ansible.
       - ufw    # Firewall.
       - xorg    # X environment.
