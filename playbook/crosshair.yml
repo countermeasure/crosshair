@@ -51,6 +51,15 @@
     shell: ufw enable
     become: yes
 
+  # Create /usr/share sub-directories.
+  - name: Create /usr/share sub-directories
+    file:
+      dest: /usr/share/{{ item }}
+      state: directory
+    with_items:
+      - icons/default
+    become: yes
+
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
     synchronize:
@@ -67,3 +76,22 @@
   # Create or recreate XDG user directories.
   - name: Create/recreate user directories
     shell: xdg-user-dirs-update --force
+
+  # Copy cursor files to /usr/share/icons directory.
+  - name: Copy cursor files
+    synchronize:
+      src: ../files/icons/Crosshair/
+      dest: /usr/share/icons/Crosshair
+    become: yes
+
+  # Create the Crosshair cursor alternative in update-alternatives. Set its
+  # priority to 100 to override Adwaita's priority of 90.
+  - name: Create Crosshair cursor alternative
+    shell: >
+      update-alternatives
+      --install
+      /usr/share/icons/default/cursor.theme
+      x-cursor-theme
+      /usr/share/icons/Crosshair/cursor.theme
+      100
+    become: yes
