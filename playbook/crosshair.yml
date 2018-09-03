@@ -61,6 +61,14 @@
       - icons/default
     become: yes
 
+  # Create dotdirectories in the home directory.
+  - name: Create dotdirectories
+    file:
+      dest: "{{ item }}"
+      state: directory
+    with_items:
+      - ~/.fonts
+
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
     synchronize:
@@ -118,3 +126,14 @@
   - name: Install fonts
     # TODO: Are mkfontscale and mkfontdir are necessary here?
     shell: fc-cache -f /usr/local/share/fonts
+
+  # Configure the .fonts directory so that the user can add their own fonts.
+  - name: Set up user fonts directory
+    # TODO: Add to the manual some instructions on how to install fonts
+    # TODO: Check that mkfontscale and mkfontdir are necessary.
+    # TODO: Check that the fc-cache command does anything useful here.
+    # TODO: Check that the -fv switch is necessary - it probably isn't.
+    shell: >
+      mkfontscale ~/.fonts &&
+      mkfontdir ~/.fonts &&
+      fc-cache -fv ~/.fonts
