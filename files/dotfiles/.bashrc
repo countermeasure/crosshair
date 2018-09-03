@@ -107,3 +107,7 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# set the default text editor
+export VISUAL=vim
+export EDITOR="$VISUAL"

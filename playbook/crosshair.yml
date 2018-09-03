@@ -11,6 +11,13 @@
       update_cache: yes
     become: yes
 
+    # Uninstall vim-tiny as it will be replaced by vim-nox.
+  - name: Uninstall vim-tiny
+    apt:
+      name: vim-tiny
+      state: absent
+    become: true
+
   # Install Debian packages which provide core functionality.
   - name: Install core Debian packages
     apt:
@@ -35,6 +42,7 @@
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.
       - ufw    # Firewall.
+      - vim-nox    # Text editor.
       - xorg    # X environment.
     become: yes
 
