@@ -18,6 +18,7 @@
     with_items:
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
+      - fontconfig    # Font tools.
       - fwupd    # Firmware updater.
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
@@ -95,3 +96,25 @@
       /usr/share/icons/Crosshair/cursor.theme
       100
     become: yes
+
+  # Download the Source Code Pro font.
+  - name: Get Source Code Pro font
+    get_url:
+      url: https://github.com/adobe-fonts/source-code-pro/raw/2.030R-ro/1.050R-it/OTF/{{ item }}
+      dest: /usr/local/share/fonts/{{ item }}
+    with_items:
+      - SourceCodePro-Regular.otf
+      - SourceCodePro-Black.otf
+    become: yes
+
+  # Download the FontAwesome font.
+  - name: Get FontAwesome font
+    get_url:
+      url: https://github.com/FortAwesome/Font-Awesome/raw/v4.7.0/fonts/FontAwesome.otf
+      dest: /usr/local/share/fonts/FontAwesome.otf
+    become: yes
+
+  # Install fonts.
+  - name: Install fonts
+    # TODO: Are mkfontscale and mkfontdir are necessary here?
+    shell: fc-cache -f /usr/local/share/fonts
