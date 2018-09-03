@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Crosshair script.
+# Opens the Crosshair manual in a new Firefox window.
+
+
+# TODO: Get the path correct.
+firefox -new-window file:///etc/crosshair/manual/index.html &
