@@ -31,6 +31,7 @@
       - network-manager-gnome    # NetworkManager GUI.
       - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
       - rsync    # Required for Crosshair installation with Ansible.
+      - rxvt-unicode    # Terminal.
       - ufw    # Firewall.
       - xorg    # X environment.
     become: yes
