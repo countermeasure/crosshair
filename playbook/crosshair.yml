@@ -69,6 +69,7 @@
       state: directory
     with_items:
       - ~/.fonts
+      - ~/.urxvt/ext
 
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
@@ -138,3 +139,10 @@
       mkfontscale ~/.fonts &&
       mkfontdir ~/.fonts &&
       fc-cache -fv ~/.fonts
+
+  # Get the urxvt font resizer script.
+  # TODO: Check that ownership is correct and permissions are 644.
+  - name: Get urxvt resize-font script
+    get_url:
+      url: https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font
+      dest: ~/.urxvt/ext/resize-font

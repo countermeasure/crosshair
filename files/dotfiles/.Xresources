@@ -52,3 +52,47 @@ Xcursor.size: 24
 *color13:      base06
 *color14:      base0F
 *color15:      base07
+
+
+!! Terminal configuration
+
+! Fonts.
+URxvt.font: xft:Source Code Pro:size=13:antialias=true:hinting=true
+URxvt.boldFont: xft:Source Code Pro Black:size=13:antialias=true:hinting=true
+
+! No scrollbar.
+URxvt.scrollBar: false
+
+! Keep the most recent 10,000 lines which have been displayed.
+URxvt.saveLines: 10000
+
+! Hide the mouse cursor when typing.
+URxvt.pointerBlank: true
+
+! Fix problem of too much space between letters.
+URxvt.letterSpace: -1
+
+! Fade the text when the terminal loses focus.
+URxvt.fading: 20
+
+! Scroll one line at a time with Shift+Up and Shift+Down.
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+
+! When the user is moving vertically in the terminal and new lines are
+! received, do not scroll to the bottom. Obey the movement commands until a
+! non-movement key is pressed, then scroll to the bottom.
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
+! Make URLs clickable.
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
+
+! Modify resize-font key bindings and resize step.
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-equal: resize-font:bigger
+URxvt.keysym.C-0: resize-font:reset
+URxvt.resize-font.step: 1
