@@ -1,0 +1,7 @@
+" Use this file to extend Crosshair's .vimrc file.
+"
+" 1. Rename it to .vimrc_plugins.personal
+" 2. Save it in a seperate repo called 'crosshair-dotfiles'
+"
+" List plugins here in vim-plug style like so:
+" Plug 'tpope/vim-commentary'

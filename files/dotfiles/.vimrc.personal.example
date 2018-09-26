@@ -1,0 +1,4 @@
+" Use this file to extend Crosshair's .vimrc file.
+"
+" 1. Rename it to .vimrc.personal
+" 2. Save it in a seperate repo called 'crosshair-dotfiles'
