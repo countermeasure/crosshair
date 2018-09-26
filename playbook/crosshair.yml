@@ -23,12 +23,14 @@
     apt:
       name: "{{ item }}"
     with_items:
+      - atool    # Required to preview archives in ranger.
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
       - fontconfig    # Font tools.
       - fwupd    # Firmware updater.
       - git    # Version control system.
       - gitk    # Git repository viewer.
+      - highlight    # Required for syntax highlighting in ranger.
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
       - libx11-dev    # Required for Cabal to install xmonad.
@@ -39,6 +41,8 @@
       - network-manager    # Network manager.
       - network-manager-gnome    # NetworkManager GUI.
       - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
+      - poppler-utils    # Required to preview PDFs in ranger.
+      - ranger    # File manager.
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.
       - ufw    # Firewall.

@@ -36,3 +36,7 @@ alias grc='git rebase --continue'
 alias gri='git rebase --interactive'
 alias gs='git status'
 __git_complete gs _git_status
+
+# ranger
+# "f" for "file manager".
+alias f='ranger'
