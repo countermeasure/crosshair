@@ -189,3 +189,24 @@
   # sound is muted.
   - name: Set initial volume level
     shell: amixer sset Master 50% unmute
+
+  # TODO: Add a comment here.
+  # TODO: Note that Firefox will require a manual step to enable these
+  # extensions.
+
+  # - name: Get Firefox extension files
+  #   get_url:
+  #     url: https://addons.mozilla.org/firefox/downloads/file/{{ item.source }}
+  #     dest: ~/.mozilla/firefox/{{ lookup('ini', 'Path section=Profile0 file=~/.mozilla/firefox/profiles.ini') }}/extensions/{{ item.filename }}
+  #   with_items:
+  #     - { source: "1075959/dark_reader-4.6.8-an+fx.xpi", filename: "addon@darkreader.org.xpi" }
+  #     - { source: "1082984/https_everywhere-2018.9.19-an+fx.xpi", filename: "https-everywhere@eff.org.xpi" }
+  #     - { source: "1084668/privacy_badger-2018.9.20-an+fx.xpi", filename: "jid1-MnnxcxisBPnSXQ@jetpack" }
+  #     - { source: "1086463/ublock_origin-1.17.0-an+fx.xpi", filename: "uBlock0@raymondhill.net.xpi" }
+  #     - { source: "1060733/vimium_ff-1.64-an+fx.xpi", filename: "{d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi" }
+  #     - TODO: Add one to specify the content of a new tab so that it doesn't come out white and bright.
+
+  # TODO: Add a comment here.
+  # TODO: Note that Chromium will require a manual step to enable these
+  # extensions.
+  # TODO: - name: Add Chromium extensions
