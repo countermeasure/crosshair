@@ -193,6 +193,33 @@ let g:syntastic_auto_loc_list = 1
 " Only use Flake8, rather than the default python checker followed by Flake8.
 let g:syntastic_python_checkers = ['flake8']
 
+" Set ranger as the file chooser.
+" https://github.com/ranger/ranger/blob/v1.7.1/examples/vim_file_chooser.vim
+function! RangeChooser()
+    let temp = tempname()
+    exec 'silent !ranger --choosefiles=' . shellescape(temp)
+    if !filereadable(temp)
+        redraw!
+        " Nothing to read.
+        return
+    endif
+    let names = readfile(temp)
+    if empty(names)
+        redraw!
+        " Nothing to open.
+        return
+    endif
+    " Edit the first item.
+    exec 'edit ' . fnameescape(names[0])
+    " Add any remaning items to the arg list/buffer list.
+    for name in names[1:]
+        exec 'argadd ' . fnameescape(name)
+    endfor
+    redraw!
+endfunction
+command! -bar RangerChooser call RangeChooser()
+nnoremap <leader>f :<C-U>RangerChooser<CR>
+
 " Import personal settings.
 " TODO: Check that this works.
 runtime vimrc.personal
