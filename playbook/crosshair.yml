@@ -20,6 +20,8 @@
       - cabal-install    # Required to install Haskell packages.
       - fontconfig    # Font tools.
       - fwupd    # Firmware updater.
+      - git    # Version control system.
+      - gitk    # Git repository viewer.
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
       - libx11-dev    # Required for Cabal to install xmonad.
@@ -60,6 +62,14 @@
       state: directory
     with_items:
       - icons/default
+    become: yes
+
+    # Symlink the git completion script into /etc/bash_completion.d/
+  - name: Symlink git completion script
+    file:
+      src: /usr/share/bash-completion/completions/git
+      path: /etc/bash_completion.d/git
+      state: link
     become: yes
 
   # Create dotdirectories in the home directory.
