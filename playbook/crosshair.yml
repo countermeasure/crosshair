@@ -28,6 +28,7 @@
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
       - fontconfig    # Font tools.
+      - firefox-esr    # Web browser.
       - fwupd    # Firmware updater.
       - git    # Version control system.
       - gitk    # Git repository viewer.
@@ -43,6 +44,7 @@
       - network-manager-gnome    # NetworkManager GUI.
       - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
       - poppler-utils    # Required to preview PDFs in ranger.
+      - pulseaudio    # Required for Firefox to play audio.
       - ranger    # File manager.
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.

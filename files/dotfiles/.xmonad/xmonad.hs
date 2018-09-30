@@ -15,4 +15,6 @@ main = do
         }
 
         `additionalKeys`
-        [ ((mod1Mask, xK_Return), spawn myTerminal) ]
+        [ ((mod1Mask, xK_Return), spawn myTerminal)
+        , ((mod1Mask, xK_b), spawn "x-www-browser")
+        ]
