@@ -1,0 +1,38 @@
+set mainfont {{Source Code Pro} 13}
+set textfont {{Source Code Pro} 13}
+set uifont {{Source Code Pro} 13}
+set datetimeformat {%d %b %Y %H:%M:%S}
+set uicolor #073642
+set bgcolor #002b36
+set fgcolor #93a1a1
+set uifgcolor #839496
+set uifgdisabledcolor #839496
+set colors {#859900 #dc322f #268bd2 #d33682 #073642 #cb4b16 #cb4b16}
+set diffcolors {{#dc322f} #859900 #2aa198}
+set mergecolors {#dc322f #268bd2 #859900 #6c71c4 #cb4b16 "#009090" #d33682 "#808000" "#009000" "#ff0080" #2aa198 "#b07070" "#70b0f0" "#70f0b0" "#f0b070" "#ff70b0"}
+set markbgcolor #93a1a1
+set selectbgcolor #cb4b16
+set foundbgcolor #b58900
+set currentsearchhitbgcolor #cb4b16
+set extdifftool vimdiff
+set headbgcolor #859900
+set headfgcolor #002b36
+set headoutlinecolor #002b36
+set remotebgcolor #839496
+set tagbgcolor #b58900
+set tagfgcolor #002b36
+set tagoutlinecolor #002b36
+set reflinecolor #002b36
+set filesepbgcolor #586e75
+set filesepfgcolor #002b36
+set linehoverbgcolor #eee8d5
+set linehoverfgcolor #002b36
+set linehoveroutlinecolor #002b36
+set mainheadcirclecolor #b58900
+set workingfilescirclecolor #dc322f
+set indexcirclecolor #859900
+set circlecolors {#3338d5 #268bd2 #486e75 #268bd2 #268bd2}
+set linkfgcolor #268bd2
+set circleoutlinecolor #002b36
+set permviews {{{All branches} {} {--all --branches --tags --remotes} {}}
+}
