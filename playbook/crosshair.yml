@@ -23,6 +23,7 @@
     apt:
       name: "{{ item }}"
     with_items:
+      - alsa-utils    # Sound tools.
       - atool    # Required to preview archives in ranger.
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
@@ -178,6 +179,11 @@
       url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       dest: ~/.vim/autoload/
 
-  # TODO: Add a comment here.
+  # Install Vim plugins by invoking PlugInstall.
   - name: Install Vim plugins
     shell: vim +PlugInstall +qall
+
+  # Unmute the sound and set it to a reasonable initial volume. By default the
+  # sound is muted.
+  - name: Set initial volume level
+    shell: amixer sset Master 50% unmute
