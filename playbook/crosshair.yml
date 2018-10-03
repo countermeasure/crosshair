@@ -194,7 +194,6 @@
   # TODO: Add a comment here.
   # TODO: Note that Firefox will require a manual step to enable these
   # extensions.
-
   # - name: Get Firefox extension files
   #   get_url:
   #     url: https://addons.mozilla.org/firefox/downloads/file/{{ item.source }}
