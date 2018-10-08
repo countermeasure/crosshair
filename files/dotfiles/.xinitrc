@@ -13,5 +13,8 @@ xdg-user-dirs-update --force
 # Without this, the Crosshair cursor theme isn't picked up in the root window.
 xsetroot -cursor_name crosshair
 
+# Start udiskie in the background.
+udiskie &
+
 # Start Xmonad.
 exec xmonad
