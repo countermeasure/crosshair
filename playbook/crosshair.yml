@@ -61,6 +61,15 @@
       - xorg    # X environment.
     become: yes
 
+  # TODO: Add a comment here.
+  - name: Install Debian Backports packages
+    apt:
+      name: "{{ item }}"
+      default_release: stretch-backports
+    with_items:
+      - torbrowser-launcher
+    become: yes
+
   # Install Haskell packages for Xmonad using Cabal. Xmonad 0.14 and
   # xmonad-contrib 0.14 are the latest versions of those packages. Xmobar 0.26
   # is not the latest version of that package, but it is the latest version
