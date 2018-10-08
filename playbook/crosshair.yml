@@ -4,6 +4,13 @@
   hosts: localhost
   tasks:
 
+  # TODO: Add a comment here.
+  - name: Add Debian Stretch Backports
+    copy:
+      content: deb http://deb.debian.org/debian stretch-backports main contrib
+      dest: /etc/apt/sources.list.d/stretch-backports.list
+    become: yes
+
   # Ensure that Debian packages are up-to-date.
   - name: Update Debian packages list
     apt:
