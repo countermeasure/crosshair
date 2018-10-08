@@ -35,6 +35,7 @@
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
       - chromium    # Web browser (alternative to Firefox).
+      - dunst    # Notification daemon.
       - fontconfig    # Font tools.
       - firefox-esr    # Web browser.
       - fwupd    # Firmware updater.
