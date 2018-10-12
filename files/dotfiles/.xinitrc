@@ -16,5 +16,7 @@ xsetroot -cursor_name crosshair
 # Start udiskie in the background.
 udiskie &
 
+# TODO: Start/configure redshift
+
 # Start Xmonad.
 exec xmonad
