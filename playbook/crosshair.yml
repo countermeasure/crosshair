@@ -58,6 +58,7 @@
       - poppler-utils    # Required to preview PDFs in ranger.
       - pulseaudio    # Required for Firefox to play audio.
       - ranger    # File manager.
+      - rofi    # Menu builder.
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.
       - udiskie    # Removable media automounter.
