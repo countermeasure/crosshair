@@ -54,6 +54,7 @@
       - libxinerama-dev    # Required for Cabal to install xmonad.
       - libxrandr-dev    # Required for Cabal to install xmonad.
       - libxss-dev    # Required for Cabal to install xmonad.
+      - mutt    # Mail user agent. TODO: Or "Email client"?
       - network-manager    # Network manager.
       - network-manager-gnome    # NetworkManager GUI.
       - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
@@ -129,6 +130,7 @@
       dest: ~/.data/{{ item }}
       state: directory
     with_items:
+      - mail
       - passwords
 
   # Copy dotfiles to home directory.
