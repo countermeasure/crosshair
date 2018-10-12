@@ -31,6 +31,7 @@
       name: "{{ item }}"
     with_items:
       - alsa-utils    # Sound tools.
+      - avahi-daemon    # Local network DNS discovery.  # (TODO: Check description is correct)
       - atool    # Required to preview archives in ranger.
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
