@@ -43,6 +43,7 @@
       - git    # Version control system.
       - gitk    # Git repository viewer.
       - highlight    # Required for syntax highlighting in ranger.
+      - keepassx    # Password manager. TODO: Is there any other PW manager for Debian?
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
       - libnotify-bin    # TODO: Describe this package. Consider whether there
