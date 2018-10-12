@@ -123,6 +123,14 @@
       - ~/.urxvt/ext
       - ~/.vim/autoload
 
+  # Create data dotdirectory sub-directories in the home directory.
+  - name: Create data dotdirectory sub-directories
+    file:
+      dest: ~/.data/{{ item }}
+      state: directory
+    with_items:
+      - passwords
+
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
     synchronize:
