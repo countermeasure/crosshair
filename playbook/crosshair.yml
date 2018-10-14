@@ -30,6 +30,7 @@
     apt:
       name: "{{ item }}"
     with_items:
+      - abook    # Address book.
       - alsa-utils    # Sound tools.
       - avahi-daemon    # Local network DNS discovery.  # (TODO: Check description is correct)
       - atool    # Required to preview archives in ranger.
@@ -131,6 +132,7 @@
       dest: ~/.data/{{ item }}
       state: directory
     with_items:
+      - contacts
       - mail
       - passwords
 

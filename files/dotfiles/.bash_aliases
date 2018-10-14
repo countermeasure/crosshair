@@ -4,6 +4,9 @@
 # aliases themselves.
 
 
+# abook
+alias abook='abook --datafile $HOME/.data/contacts/addressbook'
+
 # git
 alias g='git'
 __git_complete g _git
