@@ -1,0 +1,43 @@
+# Cache headers and messages for faster loading
+set header_cache="~/mail/cache"
+# set message_cachedir="~/mail/cache"
+
+# Automatically poll subscribed mailboxes for new mail
+set imap_check_subscribed
+
+# Reduce polling frequency to a sensible level
+set mail_check=60
+
+# And poll the current mailbox more often
+set timeout=10
+
+# Display download progress every 5K
+set net_inc=5
+
+# Sidebar
+set sidebar_visible
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+# Solarized colorscheme
+source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc
+
+# Vim like keybinds
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page  # TODO: Fix this. It should only be half a page.
+bind attach,index,pager \CU previous-page
+bind pager g top  # TODO: Fix this. It should be gg
+bind pager G bottom
+bind attach,index g first-entry  # TODO: Fix this. It should be gg
+bind attach,index G last-entry
+
+# Handle different MIME types
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+bind attach <return> view-mailcap
+
+# Headers
+ignore *
+unignore from: to: cc: bcc: date: subject:

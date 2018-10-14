@@ -121,6 +121,7 @@
       state: directory
     with_items:
       - ~/.fonts
+      - ~/.mutt/colors
       - ~/.urxvt/ext
       - ~/.vim/autoload
 
@@ -245,3 +246,8 @@
   # TODO: Note that Chromium will require a manual step to enable these
   # extensions.
   # TODO: - name: Add Chromium extensions
+
+  - name: Add mutt colorscheme
+    get_url:
+      url: https://raw.githubusercontent.com/altercation/mutt-colors-solarized/master/mutt-colors-solarized-dark-16.muttrc
+      dest: ~/.mutt/colors/

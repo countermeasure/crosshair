@@ -1,0 +1,9 @@
+#If $DISPLAY is set, use X-based counterparts
+text/html; firefox -new-window '%s' &; test=test -n "$DISPLAY"; needsterminal;
+
+#Fallback if X isn't available
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+application/pdf; zathura %s; copiousoutput
+image/*; feh %s; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s; copiousoutput
