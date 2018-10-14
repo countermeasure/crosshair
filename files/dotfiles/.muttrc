@@ -41,3 +41,8 @@ bind attach <return> view-mailcap
 # Headers
 ignore *
 unignore from: to: cc: bcc: date: subject:
+
+# Use abook for contacts.
+set query_command="abook --mutt-query '%s'"
+macro index a "|abook --add-email\n" 'add sender to abook'
+macro pager a "|abook --add-email\n" 'add sender to abook'
