@@ -69,7 +69,7 @@
       - udiskie    # Removable media automounter.
       - ufw    # Firewall.
       - vim-nox    # Text editor.
-      - weechat    # IRC client.
+      - weechat    # IRC client. TODO: Add config files and remove thie comment.
       - xorg    # X environment.
     become: yes
 
