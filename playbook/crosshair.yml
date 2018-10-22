@@ -69,6 +69,7 @@
       - udiskie    # Removable media automounter.
       - ufw    # Firewall.
       - vim-nox    # Text editor.
+      - weechat    # IRC client.
       - xorg    # X environment.
     become: yes
 

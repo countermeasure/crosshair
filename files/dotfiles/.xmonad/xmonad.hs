@@ -23,6 +23,7 @@ main = do
         , ((mod1Mask, xK_b), spawn "x-www-browser")
         , ((mod1Mask .|. shiftMask, xK_b), spawn "chromium")
         , ((mod1Mask, xK_c), openInTerminal "abook")
+        , ((mod1Mask, xK_i), openInTerminal "weechat")
         , ((mod1Mask, xK_m), openInTerminal "mutt")
         , ((mod1Mask, xK_p), spawn "keepassx")
         , ((mod1Mask, xK_r), spawn "rofi -show run")

@@ -43,3 +43,6 @@ __git_complete gs _git_status
 # ranger
 # "f" for "file manager".
 alias f='ranger'
+
+# weechat
+alias irc='weechat'
