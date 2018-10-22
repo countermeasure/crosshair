@@ -73,6 +73,8 @@
       - xorg    # X environment.
     become: yes
 
+  # TODO: Configure WeeChat.
+
   # TODO: Add a comment here.
   - name: Install Debian Backports packages
     apt:
