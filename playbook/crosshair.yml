@@ -37,7 +37,7 @@
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
       - chromium    # Web browser (alternative to Firefox).
-      - cmus    # Audio player.
+      - cmus    # Audio player. TODO: Configure better keybindings.
       - dunst    # Notification daemon.
       - exuberant-ctags    # Indexing tool.
       - feh    # Image viewer. TODO: Configure it.
