@@ -156,6 +156,8 @@ Plug 'scrooloose/syntastic'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'  " Required for vim-easytags.
 " Import personal settings.
 " TODO: Check that this works.
 runtime vimrc_plugins.personal

@@ -7,6 +7,10 @@
 # abook
 alias abook='abook --datafile $HOME/.data/contacts/addressbook'
 
+# ctags
+# "ut" for "update tags", to recursively update the current directory's ctags.
+alias ut='ctags -f ~/.vimtags -R --tag-relative=yes'
+
 # git
 alias g='git'
 __git_complete g _git
