@@ -38,7 +38,7 @@
       - cabal-install    # Required to install Haskell packages.
       - chromium    # Web browser (alternative to Firefox).
       - dunst    # Notification daemon.
-      - feh    # Image viewer.
+      - feh    # Image viewer. TODO: Configure it.
       - fontconfig    # Font tools.
       - firefox-esr    # Web browser.
       - fwupd    # Firmware updater.
