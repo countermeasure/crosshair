@@ -74,6 +74,7 @@
       - vim-nox    # Text editor.
       - weechat    # IRC client. TODO: Add config files and remove thie comment.
       - xorg    # X environment.
+      - zathura    # PDF viewer.
     become: yes
 
   # TODO: Configure WeeChat.
