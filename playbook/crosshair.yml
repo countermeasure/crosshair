@@ -59,6 +59,7 @@
       - libxrandr-dev    # Required for Cabal to install xmonad.
       - libxss-dev    # Required for Cabal to install xmonad.
       - maim    # Screenshot tool.
+      - mpv    # Video player.
       - mutt    # Mail user agent. TODO: Or "Email client"?
       - network-manager    # Network manager.
       - network-manager-gnome    # NetworkManager GUI.
