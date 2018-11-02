@@ -20,6 +20,7 @@ main = do
 
         `additionalKeys`
         [ ((mod1Mask, xK_Return), spawn myTerminal)
+        , ((mod1Mask, xK_a), openInTerminal "cmus")
         , ((mod1Mask, xK_b), spawn "x-www-browser")
         , ((mod1Mask .|. shiftMask, xK_b), spawn "chromium")
         , ((mod1Mask, xK_c), openInTerminal "abook")
