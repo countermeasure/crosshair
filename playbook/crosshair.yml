@@ -55,6 +55,7 @@
       - libxinerama-dev    # Required for Cabal to install xmonad.
       - libxrandr-dev    # Required for Cabal to install xmonad.
       - libxss-dev    # Required for Cabal to install xmonad.
+      - maim    # Screenshot tool.
       - mutt    # Mail user agent. TODO: Or "Email client"?
       - network-manager    # Network manager.
       - network-manager-gnome    # NetworkManager GUI.
@@ -66,6 +67,7 @@
       - rofi    # Menu builder.
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.
+      - slop    # Required for screenshot area selection with maim.
       - udiskie    # Removable media automounter.
       - ufw    # Firewall.
       - vim-nox    # Text editor.
