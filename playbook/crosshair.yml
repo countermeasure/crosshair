@@ -53,6 +53,7 @@
       - libnotify-bin    # TODO: Describe this package. Consider whether there
         # is a lighter package that provides the same functionality
         # (eg. notification-deamon?)
+      # - libreoffice  TODO: Uncomment this.
       - libx11-dev    # Required for Cabal to install xmonad.
       - libxft-dev    # Required for Cabal to install xmonad-contrib.
       - libxinerama-dev    # Required for Cabal to install xmonad.
