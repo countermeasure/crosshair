@@ -34,10 +34,13 @@
       - alsa-utils    # Sound tools.
       - avahi-daemon    # Local network DNS discovery.  # (TODO: Check description is correct)
       - atool    # Required to preview archives in ranger.
+      - autojump    # Directory changer.
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
       - chromium    # Web browser (alternative to Firefox).
       - cmus    # Audio player. TODO: Configure better keybindings.
+      - curl    # URL data transfer tool.
+      - dnsutils    # DNS tools.
       - dunst    # Notification daemon.
       - exuberant-ctags    # Indexing tool.
       - feh    # Image viewer. TODO: Configure it.
@@ -47,6 +50,8 @@
       - git    # Version control system.
       - gitk    # Git repository viewer.
       - highlight    # Required for syntax highlighting in ranger.
+      - htop    # Process viewer.
+      - inotify-tools    # File system event monitoring tools.
       - keepassx    # Password manager. TODO: Is there any other PW manager for Debian?
       - libasound2-dev    # Requied for Cabal to install xmobar.
       - libiw-dev    # Required for Cabal to install xmobar.
@@ -61,10 +66,13 @@
       - libxss-dev    # Required for Cabal to install xmonad.
       - maim    # Screenshot tool.
       - mpv    # Video player. TODO: Configure?
+      - mtr-tiny    # Route tracer.
       - mutt    # Mail user agent. TODO: Or "Email client"?
+      - ncdu    # Disk usage viewer.
       - network-manager    # Network manager.
       - network-manager-gnome    # NetworkManager GUI.
       - network-manager-openvpn-gnome    # NetworkManager OpenVPN plugin.
+      - nmap    # Port scanner.
       - poppler-utils    # Required to preview PDFs in ranger.
       - pulseaudio    # Required for Firefox to play audio.
       - ranger    # File manager.
@@ -72,11 +80,14 @@
       - rofi    # Menu builder.
       - rsync    # Required for Crosshair installation with Ansible.
       - rxvt-unicode    # Terminal.
+      - shellcheck    # Shell script linter.
+      - silversearcher-ag    # Text searcher.
       - slop    # Required for screenshot area selection with maim.
       - udiskie    # Removable media automounter.
       - ufw    # Firewall.
       - vim-nox    # Text editor.
       - weechat    # IRC client. TODO: Add config files and remove thie comment.
+      - whois    # WHOIS client.
       - xorg    # X environment.
       - zathura    # PDF viewer. TODO: Configure this.
     become: yes
