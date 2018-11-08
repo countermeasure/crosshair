@@ -9,6 +9,9 @@ xrdb -merge "$HOME"/.Xresources
 xdg-user-dirs-update --force
 # TODO: This instead? xdg-user-dirs-update
 
+# Set wallpaper.
+feh --bg-scale /usr/share/wallpaper/default.png
+
 # Initialise the cursor.
 # Without this, the Crosshair cursor theme isn't picked up in the root window.
 xsetroot -cursor_name crosshair

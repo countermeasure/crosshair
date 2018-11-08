@@ -148,6 +148,7 @@
       - ~/.mutt/colors
       - ~/.urxvt/ext
       - ~/.vim/autoload
+      - ~/.wallpaper
 
   # Create data dotdirectory sub-directories in the home directory.
   - name: Create data dotdirectory sub-directories
@@ -196,6 +197,13 @@
     become: yes
 
   # TODO: Put the gtk dotfiles in /etc so that they are available system-wide
+
+  # Copy wallpaper file to /etc/share/wallpaper directory.
+  - name: Copy wallpaper file
+    copy:
+      src: ../files/wallpaper/default.png
+      dest: /usr/share/wallpaper/default.png
+    become: yes
 
   # Download the Source Code Pro font.
   - name: Get Source Code Pro font
