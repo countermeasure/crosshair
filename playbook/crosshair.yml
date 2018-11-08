@@ -49,6 +49,7 @@
       - fwupd    # Firmware updater.
       - git    # Version control system.
       - gitk    # Git repository viewer.
+      - gnome-themes-standard    # GTK themes.
       - highlight    # Required for syntax highlighting in ranger.
       - htop    # Process viewer.
       - inotify-tools    # File system event monitoring tools.
