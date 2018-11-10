@@ -160,11 +160,27 @@
       - mail
       - passwords
 
+  # Create /etc sub-directories.
+  - name: Create /etc sub-directories
+    file:
+      dest: /etc/{{ item }}
+      state: directory
+    with_items:
+      - X11/xorg.conf.d
+    become: yes
+
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
     synchronize:
       src: ../files/dotfiles/
       dest: "~"
+
+  # Copy touchpad config file to /etc/X11/x.org.conf.d/ directory.
+  - name: Copy touchpad config file
+    copy:
+      src: ../files/systemfiles/30-touchpad.conf
+      dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+    become: yes
 
   # Copy user-dirs.default file to /etc/xdg/ directory.
   - name: Copy user-dirs.defaults
