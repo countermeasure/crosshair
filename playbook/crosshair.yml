@@ -302,3 +302,27 @@
     get_url:
       url: https://raw.githubusercontent.com/altercation/mutt-colors-solarized/master/mutt-colors-solarized-dark-16.muttrc
       dest: ~/.mutt/colors/
+
+  # TODO: Add comment here.
+  - name: Stop NetworkManager managing resolv.conf
+    lineinfile:
+      path: /etc/NetworkManager/NetworkManager.conf
+      regexp: "^dns="
+      insertafter: "^[main]$"
+      firstmatch: yes
+      line: "dns=none"
+    become: yes
+
+  # Reload the NetworkManager systemd service.
+  - name: Reload NetworkManager
+    systemd:
+      name: NetworkManager.service
+      state: reloaded
+    become: yes
+
+  # TODO: Add comment here.
+  - name: Copy resolv.conf to /etc/resolv.conf
+    copy:
+      src: ../files/systemfiles/resolv.conf
+      dest: /etc/resolv.conf
+    become: yes
