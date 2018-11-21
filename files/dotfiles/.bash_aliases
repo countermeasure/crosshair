@@ -10,9 +10,46 @@ alias abook='abook --datafile $HOME/.data/contacts/addressbook'
 # ag
 alias ag='ag --silent --hidden'
 
+# apt
+alias install='sudo apt install'
+alias uninstall='sudo apt purge --autoremove'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+
+# aunpack
+# "x" for "extract", to extract files from most archive formats.
+alias x='aunpack'  # "x" for "extract".
+
+# cd
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+alias ........='cd ../../../..'
+alias ..........='cd ../../../../..'
+
+# clear
+alias c='clear'
+
+# cp
+alias cp='cp -iv'
+
 # ctags
 # "ut" for "update tags", to recursively update the current directory's ctags.
 alias ut='ctags -f ~/.vimtags -R --tag-relative=yes'
+
+# df
+alias df='df -H --total'
+
+# du
+alias du='df -ch'
+
+# find
+alias fd='find . -type d -iname'
+alias ff='find . -type f -iname'
+
+# history
+alias h='history'
+alias hl='history | less'
 
 # git
 alias g='git'
@@ -50,9 +87,33 @@ __git_complete gs _git_status
 # grep
 alias grep='grep --color=auto'
 
+# less
+alias less='less -i'
+
+# ln
+alias ln='ln -iv'
+
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -Ahl --group-directories-first'
+
+# mkdir
+alias mkdir='mkdir -pv'
+
+# mv
+alias mv='mv -iv'
+
+# ping
+alias ping='ping -c 5 -i 0.2'
+
+# python
+alias p='python'
+
+# reset
+alias r='reset'
+
+# rm
+alias rm='rm -i'
 
 # ranger
 # "f" for "file manager".
@@ -60,3 +121,7 @@ alias f='ranger'
 
 # weechat
 alias irc='weechat'
+
+# x-terminal-emulator
+# "nt" for "new terminal", to spawn a new terminal inheriting from its parent.
+alias nt='x-terminal-emulator &'
