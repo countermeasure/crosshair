@@ -52,7 +52,7 @@ alias grep='grep --color=auto'
 
 # ls
 alias ls='ls --color=auto'
-alias ll='ls -l'
+alias ll='ls -Ahl --group-directories-first'
 
 # ranger
 # "f" for "file manager".
