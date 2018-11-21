@@ -47,6 +47,13 @@ alias gri='git rebase --interactive'
 alias gs='git status'
 __git_complete gs _git_status
 
+# grep
+alias grep='grep --color=auto'
+
+# ls
+alias ls='ls --color=auto'
+alias ll='ls -l'
+
 # ranger
 # "f" for "file manager".
 alias f='ranger'
