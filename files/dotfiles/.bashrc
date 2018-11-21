@@ -7,11 +7,10 @@ case $- in
       *) return;;
 esac
 
-# Don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-
-# Append to the history file rather than overwriting it.
-shopt -s histappend
+# Don't put lines starting with space in the history list.
+# Remove all previous lines matching the current line from the history list.
+# Note that the history list is not the same as the history file.
+HISTCONTROL=ignorespace:erasedups
 
 # When a shell exits, save the last 1000 lines from the history list to
 # the history file.
@@ -19,6 +18,9 @@ HISTSIZE=1000
 
 # Set the maximum size of the history file to 2000 lines.
 HISTFILESIZE=2000
+
+# Append to the history file rather than overwriting it.
+shopt -s histappend
 
 # Check the window size after each command and update it if necessary.
 shopt -s checkwinsize
@@ -55,11 +57,13 @@ unset color_prompt
 
 # Enable colored ls output.
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if [ -r ~/.dircolors ]; then
+        eval "$(dircolors -b ~/.dircolors)"
+    fi
 fi
 
 # Enable colored GCC warnings and errors.
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=00;31:warning=00;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Enable programmable completion features.
 if ! shopt -oq posix; then
