@@ -1,0 +1,57 @@
+# Never ring the terminal bell.
+set bell-style none
+
+# Color possible completions the way the `ls` command does.
+set colored-stats on
+
+# Make completion case insensitive.
+set completion-ignore-case on
+
+# Treat hypens and underscores as equivalent when suggesting completions.
+set completion-map-case on
+
+# Only ask whether to display all possible completions when there are more than
+# 500 of them.
+set completion-query-items 500
+
+# Use vi-like key bindings.
+set editing-mode vi
+
+# Show all possible completions at once, rather than in a pager.
+set page-completions off
+
+# Show completion options with one Tab key press (not the default two presses).
+set show-all-if-ambiguous on
+
+# Modify the prompt to indicate the vi mode. This is required for
+# vi-cmd-mode-string and vi-ins-mode-string to take effect.
+set show-mode-in-prompt on
+
+# When the cursor is in the middle of a word, don't add completion text which
+# duplicates text already to the right of the cursor.
+set skip-completed-text on
+
+# Make the cursor a steady block in command/normal mode.
+set vi-cmd-mode-string "\1\e[2 q\2"
+
+# Make the cursor a blinking bar in insert mode.
+set vi-ins-mode-string "\1\e[5 q\2"
+
+# Switch to block cursor before executing a command. Without this, Vim will
+# open in normal mode with a blinking bar cursor rather than a steady block
+# cursor.
+RETURN: "\e\n"
+
+# Switch to command/normal mode with the "jk" key sequence.
+"jk": vi-movement-mode
+
+# Search through history with arrow keys.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# The following key bindings are only for comand mode.
+set keymap vi-command
+
+# In command mode, search through history with "j" and "k" keys.
+"j": history-search-forward
+"k": history-search-backward
