@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Crosshair script.
+# Manages devices via a menu.
+
+
+# Constants.
+BASE_PATH="/media/${USER}"
+
+# Menu parameters.
+mesg="Tab to move | Enter to select | Esc to cancel"
+prompt="> devices "
+
+# Show the menu and get a selection.
+mounted_devices=$(ls "${BASE_PATH}")
+menu_selection=$(
+  echo "${mounted_devices}" |
+  rofi -dmenu -mesg "${mesg}" -p "${prompt}"
+)
+
+# Execute the menu selection, if one is made.
+if [ "${menu_selection}" ]; then
+    udiskie-umount --detach "${BASE_PATH}/${menu_selection}"
+fi
