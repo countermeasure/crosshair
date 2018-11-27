@@ -214,6 +214,21 @@
 
   # TODO: Put the gtk dotfiles in /etc so that they are available system-wide
 
+  # Copy script files to /usr/local/bin.
+  - name: Copy script files
+    synchronize:
+      src: ../files/scripts/bin/
+      dest: /usr/local/bin
+    become: yes
+
+  - name: Set ownership of script files
+    file:
+      dest: /usr/local/bin
+      owner: root
+      group: staff
+      recurse: yes
+    become: yes
+
   # Copy wallpaper file to /etc/share/wallpaper directory.
   - name: Copy wallpaper file
     copy:

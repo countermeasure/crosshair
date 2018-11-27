@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Crosshair script.
+# Powers down via a menu.
+
+
+# Constants.
+HIBERNATE="hibernate"
+OFF="off"
+REBOOT="reboot"
+SUSPEND="suspend"
+
+# Menu parameters.
+mesg="Tab to move | Enter to select | Esc to cancel"
+options="${OFF}|${SUSPEND}|${HIBERNATE}|${REBOOT}"
+prompt="> power "
+separator="|"
+
+# Show the menu and get a selection.
+menu_selection=$(
+  echo "${options}" |
+  rofi -dmenu -mesg "${mesg}" -p "${prompt}" -sep "${separator}"
+)
+
+# Execute the menu selection.
+case "${menu_selection}" in
+  "${HIBERNATE}")
+    systemctl hibernate
+    ;;
+  "${OFF}")
+    systemctl poweroff
+    ;;
+  "${REBOOT}")
+    systemctl reboot
+    ;;
+  "${SUSPEND}")
+    systemctl suspend
+    ;;
+esac
