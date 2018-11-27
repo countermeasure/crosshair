@@ -31,5 +31,6 @@ main = do
         , ((mod1Mask, xK_n), openInTerminal "nmtui")
         , ((mod1Mask, xK_p), spawn "keepassx")
         , ((mod1Mask, xK_r), spawn "rofi -show run")
+        , ((mod1Mask .|. shiftMask, xK_s), spawn "screenshot")
         , ((mod1Mask, xK_t), spawn "torbrowser-launcher")
         ]

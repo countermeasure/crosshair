@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Crosshair script.
+# Takes a screenshot via a menu.
+
+
+# Constants.
+FULL_SCREEN="full_screen"
+SELECTION="selection"
+
+# Menu parameters.
+mesg="Tab to move | Enter to select | Esc to cancel"
+options="${SELECTION}|${FULL_SCREEN}"
+prompt="> screenshot "
+separator="|"
+
+# Show the menu and get a selection.
+menu_selection=$(
+  echo "${options}" |
+  rofi -dmenu -mesg "${mesg}" -p "${prompt}" -sep "${separator}"
+)
+
+# Ensure the destination directory exists.
+screenshots_dir=$(xdg-user-dir SCREENSHOTS)
+mkdir -p "${screenshots_dir}"
+
+# Build file path.
+file_name="screenshot_$(date +%F)_at_$(date +%T).png"
+file_path="${screenshots_dir}/${file_name}"
+
+# Execute the menu selection.
+case "${menu_selection}" in
+  "${FULL_SCREEN}")
+    maim "${file_path}"
+    ;;
+  "${SELECTION}")
+    maim --select --hidecursor "${file_path}"
+    ;;
+esac
+
+# Show a notification.
+if [ "${menu_selection}" ]; then
+  notify-send -u normal -t 3 "Screenshot created" "Filename: ${file_name}"
+fi
