@@ -1,0 +1,12 @@
+! Assign Hyper keysyms to Tab key and Backspace key keycodes.
+keycode 23 = Hyper_L
+keycode 51 = Hyper_R
+
+! Assign Hyper keysyms to Mod4 modifier.
+clear Mod4
+add Mod4 = Hyper_L Hyper_R
+
+! Keep Tab and Backspace available for xcape by mapping them to unused
+! keycodes.
+keycode any = Tab ISO_Left_Tab Tab ISO_Left_Tab
+keycode any = backslash bar backslash bar

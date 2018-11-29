@@ -89,6 +89,7 @@
       - vim-nox    # Text editor.
       - weechat    # IRC client. TODO: Add config files and remove thie comment.
       - whois    # WHOIS client.
+      - xcape    # Modifier key overloader.
       - xorg    # X environment.
       - zathura    # PDF viewer. TODO: Configure this.
     become: yes
