@@ -3,6 +3,9 @@
 # Load and merge resource file.
 xrdb -merge "$HOME"/.Xresources
 
+# Swap Caps Lock and left Control keys.
+setxkbmap -option ctrl:swapcaps
+
 # Update ~/.config/user-dirs.dirs
 # TODO: Change to : Update XDG user directories. ???
 # TODO: Make sure the I know what --force is doing here.
