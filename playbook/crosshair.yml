@@ -341,3 +341,27 @@
       src: ../files/systemfiles/resolv.conf
       dest: /etc/resolv.conf
     become: yes
+
+  # Set up an /etc/cron.eachminute directory for jobs which run every minute.
+  - name: Create /etc/cron.eachminute directory
+    file:
+      dest: /etc/cron.eachminute
+      state: directory
+    become: yes
+
+  # Add /etc/cron.eachminute to /etc/crontab file.
+  - name: Add /etc/cron.eachminute to /etc/crontab
+    lineinfile:
+      path: /etc/crontab
+      regexp: "^*  *"
+      insertbefore: "/etc/cron.hourly$"
+      firstmatch: yes
+      line: "*  *»···* * *»··root    cd / && run-parts --report /etc/cron.eachminute"
+    become: yes
+
+  # Copy battery monitor script to /etc/cron.eachminute directory.
+  - name: Copy battery monitor file
+    copy:
+      src: ../files/scripts/cron.eachminute/battery_monitor
+      dest: /etc/cron.eachminute/battery_monitor
+    become: yes

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Crosshair script.
+# Shows a notification when the battery is low.
+
+
+# Constants.
+# TODO: Switch this to looking at time remaining rather than percentage. For
+# this, find out how xmobar calculates time remaining.
+BATTERY_DATA_DIRECTORY="/sys/class/power_supply/BAT0"
+CRITICAL_PERCENTAGE=5
+LOW_PERCENTAGE=10
+
+# Exit if battery is not discharging.
+status=$(cat "${BATTERY_DATA_DIRECTORY}/status")
+
+if [ "${status}" != "Discharging" ]; then
+  exit 0
+fi
+
+# Show notification if battery is low.
+level=$(cat "${BATTERY_DATA_DIRECTORY}/capacity")
+
+if [ "${level}" -le ${CRITICAL_PERCENTAGE} ]; then
+  urgency="critical"
+  msg="Critically low battery"
+elif [ "${level}" -le ${LOW_PERCENTAGE} ]; then
+  urgency="normal"
+  msg="Low battery"
+fi
+
+# TODO: Check if the DISPLAY=:0 is required.
+DISPLAY=:0 notify-send -u "${urgency}" -t 2000 "${msg}"
