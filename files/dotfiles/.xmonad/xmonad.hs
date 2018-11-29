@@ -1,6 +1,14 @@
 import XMonad
+import XMonad.Actions.WorkspaceNames
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
+
+
+-- Colours
+-- TODO: List all solarized colour in here - 0 to 15.
+myActiveColour = "#b58900"
+myInactiveColour = "#586e75"
+black = "#000000"
 
 
 myModMask = mod4Mask
@@ -16,6 +24,19 @@ main = do
 
     xmonad $ docks def
         { layoutHook = avoidStruts (Full)
+        , logHook = workspaceNamesPP xmobarPP
+            -- https://hackage.haskell.org/package/xmonad-contrib-0.14/docs/XMonad-Hooks-DynamicLog.html
+            { ppOutput = hPutStrLn xmproc
+            , ppTitle = (\x -> "")
+            -- TODO: Display layouts as FontAwesome icons:
+            -- 'pause', 'arrows-alt', 'th-large', 'th', 'square'
+            , ppLayout = (\x -> "")
+            , ppWsSep = "  "
+            , ppCurrent = (\x -> xmobarColor myActiveColour black x)
+            -- TODO: Solarize this text colour.
+            , ppHiddenNoWindows = (\x -> xmobarColor "#222222" black x)
+            }
+            >>= dynamicLogWithPP
         , modMask = myModMask
         , terminal = myTerminal
         }

@@ -176,6 +176,22 @@
       src: ../files/dotfiles/
       dest: "~"
 
+  # TODO: Add a comment here.
+  - name: Get wifi device name
+    shell: nmcli dev | awk '$2=="wifi" { print $1 }'
+    register: wifi_device_result
+
+  # TODO: Add a comment here.
+  - name: Set wifi device name as a fact for template readability
+    set_fact:
+      wifi_device: "{{ wifi_device_result.stdout }}"
+
+  # TODO: Add a comment here.
+  - name: Template wifi device name into .xmobarrc
+    template:
+      src: ../files/dotfiles/.xmobarrc
+      dest: ~/.xmobarrc
+
   # Copy touchpad config file to /etc/X11/x.org.conf.d/ directory.
   - name: Copy touchpad config file
     copy:

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Crosshair script.
+# Renders an Xmobar volume plugin.
+
+
+# Constants.
+STATUS_ON="[on]"
+
+# Get volume level and status.
+level=$(
+  amixer sget Master | grep Left: | awk '{ print substr ($5, 2, length($5)-2) }'
+)
+status=$(amixer sget Master | grep Left: | awk '{ print $6 }')
+
+# Render the plugin.
+case "${status}" in
+  "${STATUS_ON}")
+    # Volume is on.
+    echo "<fn=1><fc=#b58900></fc></fn> ${level}"
+    ;;
+  *)
+    # Volume is muted.
+    echo "<fn=1><fc=#b58900></fc></fn> Mute"
+    ;;
+esac

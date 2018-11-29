@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Crosshair script.
+# Renders an Xmobar VPN plugin.
+
+
+# If there's an active VPN, get its status.
+vpn_name=$(nmcli con show --active | awk '$3=="vpn" {print $1}')
+
+if [ "${vpn_name}" ] ; then
+  vpn_status=$(
+    nmcli con show id "${vpn_name}" | awk '$1=="VPN.VPN-STATE:" {print $2}'
+  )
+fi
+
+# Render the plugin.
+case "${vpn_status}" in
+  3)
+    # VPN is connecting.
+    echo "<fn=1><fc=#b58900></fc></fn>"
+    ;;
+  5)
+    # VPN is connected.
+    echo "<fn=1><fc=#b58900></fc></fn>"
+    ;;
+  *)
+    # VPN is not connected.
+    echo "<fn=1><fc=#b58900></fc></fn>"
+    ;;
+esac

@@ -1,4 +1,67 @@
 Config
-    { template = "%date%"
-    , commands = [ Run Date "%a %d %b" "date" 10 ]
+    {
+    -- appearance
+      font = "xft:Source Code Pro:size=13:antialias=true:hinting=true"
+    , additionalFonts = [ "xft:FontAwesome:pixelsize=15:antialias=true:hinting=true" ]
+    , bgColor = "#000000"
+    , fgColor = "#839496"
+    , position = TopP 12 12
+    , textOffset = 22
+
+    -- layout
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %battery%   %multicpu%   %memory%   %{{ wifi_device }}wi% %vpn%   %dynnetwork%   %volume%   %date%"
+
+    -- general behavior
+    , lowerOnStart = True
+    , hideOnStart = False
+    -- TODO: Get this displaying on all monitors
+    , allDesktops = True
+    , pickBroadest = True
+    , overrideRedirect = False
+    , persistent = True
+
+    -- plugins
+    , commands =
+        [ Run Battery
+            [ "--template" , "<acstatus>"
+            , "--"
+            -- discharging status
+            , "-o", "<fn=1><fc=#b58900>\xf242</fc></fn> <timeleft>"
+            -- charging status
+            , "-O", "<fn=1><fc=#b58900>\xf1e6</fc></fn> <left>%"
+            -- charged status
+            , "-i", "<fn=1><fc=#b58900>\xf1e6</fc></fn> Full"
+            ]
+            50
+        , Run Com "xmobar_volume_plugin" [] "volume" 10
+        , Run Com "xmobar_vpn_plugin" [] "vpn" 10
+        , Run Date
+            "<fn=1><fc=#b58900>\xf133</fc></fn> %a %d %b   <fn=1><fc=#b58900>\xf017</fc></fn> %H:%M"
+            "date"
+            10
+        , Run DynNetwork
+            [ "--template"
+            , "<fn=1><fc=#b58900>\xf176</fc></fn> <tx>kB/s <fn=1><fc=#b58900>\xf175</fc></fn> <rx>kB/s"
+            ]
+            10
+        , Run Memory
+            [ "--template", "<fn=1><fc=#b58900>\xf00a</fc></fn> <usedratio>%"
+            , "--High", "80"
+            , "--high", "#dc322f"
+            ]
+            10
+        , Run MultiCpu
+            [ "--template", "<fn=1><fc=#b58900>\xf085</fc></fn> <total>%"
+            , "--High", "75"
+            , "--high", "#dc322f"
+            ]
+            10
+        , Run StdinReader
+        , Run Wireless
+            "{{ wifi_device }}"
+            [ "--template", "<fn=1><fc=#b58900>\xf1eb</fc></fn> <essid> <quality>%" ]
+            20
+        ]
     }
