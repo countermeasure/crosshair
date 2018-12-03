@@ -1,0 +1,37 @@
+---
+
+# TODO: Add comment here.
+- name: Create NVM repository
+  git:
+    dest: ~/.nvm
+    repo: https://github.com/creationix/nvm.git
+    version: v0.33.11
+
+# TODO: Add comment here.
+- name: Copy .bashrc_node to home directory
+  copy:
+    src: ../files/dotfiles/optional/.bashrc_node
+    dest: ~/.bashrc_node
+
+# TODO: Add comment here.
+# TODO: Change this to blockinfile?
+- name: Ensure module sourcing comment exists in .bashrc
+  lineinfile:
+    line: "# Source crosshair modules."
+    path: ~/.bashrc
+    regexp: "^# Source crosshair modules\\.$"
+
+
+# TODO: Add comment here.
+# TODO: Change this to blockinfile?
+- name: Source node module in .bashrc
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^\\[ -f ~/.bashrc_node \\] && . ~/.bashrc_node$"
+    insertafter: "^# Source crosshair modules\\.$"
+    line: "[ -f ~/.bashrc_node ] && . ~/.bashrc_node"
+
+# Install Node.js LTS version.
+- name: Install Node.js
+  shell: . ~/.nvm/nvm.sh && nvm install 10.14.1
+

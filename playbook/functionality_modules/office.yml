@@ -1,0 +1,7 @@
+---
+
+- name: Install Debian office packages
+  apt:
+    name: libreoffice
+
+# TODO: Add a mod+o binding to xMonad for this?

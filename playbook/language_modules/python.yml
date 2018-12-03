@@ -1,0 +1,45 @@
+---
+
+# TODO: Insert comment here.
+# TODO: Should jupyter being installed with pip-3.5 from python3-pip?
+- name: Install Python packages
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+  with_items:
+    #    - {"name": "ansible", "version": "2.6.2"} TODO: Can install withouth
+    #      segfault?
+    - {"name": "flake8", "version": "3.6.0"}
+    - {"name": "jupyter", "version": "1.0.0"}
+    - {"name": "virtualenv", "version": "16.1.0"}
+    - {"name": "virtualenvwrapper", "version": "4.8.2"}
+
+# TODO: Add python related Vim plugins to .vimrc and Flake* Syntastic
+# reference.
+# TODO: Add virtualenv to bash prompt.
+# TODO: Add Python 3.7.1
+#
+
+# TODO: Add comment here.
+- name: Copy .bashrc_python to home directory
+  copy:
+    src: ../files/dotfiles/optional/.bashrc_python
+    dest: ~/.bashrc_python
+
+# TODO: Add comment here.
+# TODO: Change this to blockinfile?
+- name: Ensure module sourcing comment exists in .bashrc
+  lineinfile:
+    line: "# Source crosshair modules."
+    path: ~/.bashrc
+    regexp: "^# Source crosshair modules\\.$"
+
+
+# TODO: Add comment here.
+# TODO: Change this to blockinfile?
+- name: Source python module in .bashrc
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^\\[ -f ~/.bashrc_python \\] && . ~/.bashrc_python$"
+    insertafter: "^# Source crosshair modules\\.$"
+    line: "[ -f ~/.bashrc_python ] && . ~/.bashrc_python"

@@ -1,0 +1,20 @@
+---
+
+  - name: Install optional Debian packages
+    apt:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      # - chromium    # Chromium browser as a second browser after Firefox.
+      # - gimp
+      # - inkscape
+      # - virtualbox
+      # - openoffice
+      # - macchanger
+      # - transmission-remote-cli    # or just transmission-cli?
+      # - virtualbox
+      # - whois
+      # - zeal
+    become: true
+    tags:
+      - recommended

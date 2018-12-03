@@ -152,6 +152,7 @@ set splitright
 call plug#begin()
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" TODO: Consider replacing syntastic with Ale.
 Plug 'scrooloose/syntastic'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline'
@@ -164,6 +165,7 @@ runtime vimrc_plugins.personal
 call plug#end()
 
 " Set colorscheme
+" TODO: Silence this error when the plugins are yet to be installed.
 colorscheme base16-tomorrow-night
 
 " TODO: Work out what this does
@@ -222,6 +224,5 @@ endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>f :<C-U>RangerChooser<CR>
 
-" Import personal settings.
 " TODO: Check that this works.
 runtime vimrc.personal

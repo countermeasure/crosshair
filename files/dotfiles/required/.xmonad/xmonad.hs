@@ -105,6 +105,8 @@ openInTerminal application =
 
 
 main = do
+    -- TODO: `xmproc <- spawnPipe "xmobar"` should go in this "Configure xmobar"
+    -- commit.
     xmproc <- spawnPipe "xmobar"
 
     xmonad . docks

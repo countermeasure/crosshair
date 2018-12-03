@@ -1,0 +1,2 @@
+export WORKON_HOME="${HOME}/.virtualenvs"
+[ -s ~/.local/bin/virtualenvwrapper.sh ] && . ~/.local/bin/virtualenvwrapper.sh

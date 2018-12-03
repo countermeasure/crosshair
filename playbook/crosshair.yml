@@ -37,7 +37,9 @@
       - autojump    # Directory changer.
       - c2hs    # Required for Cabal to install xmobar.
       - cabal-install    # Required to install Haskell packages.
+      - calcurse    # TODO: Describe (and configure in seperate commit).
       - chromium    # Web browser (alternative to Firefox).
+      - cloc    # Lines of code counter.
       - cmus    # Audio player. TODO: Configure better keybindings.
       - curl    # URL data transfer tool.
       - dnsutils    # DNS tools.
@@ -129,6 +131,7 @@
       state: directory
     with_items:
       - icons/default
+      - wallpaper
     become: yes
 
     # Symlink the git completion script into /etc/bash_completion.d/
@@ -173,24 +176,32 @@
   # Copy dotfiles to home directory.
   - name: Copy dotfiles
     synchronize:
-      src: ../files/dotfiles/
+      src: ../files/dotfiles/required/
       dest: "~"
+    tags:
+      - now
 
   # TODO: Add a comment here.
   - name: Get wifi device name
     shell: nmcli dev | awk '$2=="wifi" { print $1 }'
     register: wifi_device_result
+    tags:
+      - now
 
   # TODO: Add a comment here.
   - name: Set wifi device name as a fact for template readability
     set_fact:
       wifi_device: "{{ wifi_device_result.stdout }}"
+    tags:
+      - now
 
   # TODO: Add a comment here.
   - name: Template wifi device name into .xmobarrc
     template:
-      src: ../files/dotfiles/.xmobarrc
+      src: ../files/dotfiles/required/.xmobarrc
       dest: ~/.xmobarrc
+    tags:
+      - now
 
   # Copy touchpad config file to /etc/X11/x.org.conf.d/ directory.
   - name: Copy touchpad config file
@@ -370,7 +381,7 @@
   - name: Add /etc/cron.eachminute to /etc/crontab
     lineinfile:
       path: /etc/crontab
-      regexp: "^*  *"
+      regexp: "^\\*  \\*"
       insertbefore: "/etc/cron.hourly$"
       firstmatch: yes
       line: "*  *»···* * *»··root    cd / && run-parts --report /etc/cron.eachminute"
@@ -382,3 +393,18 @@
       src: ../files/scripts/cron.eachminute/battery_monitor
       dest: /etc/cron.eachminute/battery_monitor
     become: yes
+
+  # TODO: Add comment.
+  - import_tasks: language_modules/elm.yml
+    tags:
+      - now
+
+  # TODO: Add comment.
+  - import_tasks: language_modules/node.yml
+    tags:
+      - now
+
+  # TODO: Add comment.
+  - import_tasks: language_modules/python.yml
+    tags:
+      - now

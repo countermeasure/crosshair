@@ -1,0 +1,8 @@
+---
+
+- name: Install Debian design packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - gimp
+    - inkscape

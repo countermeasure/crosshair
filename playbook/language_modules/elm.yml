@@ -1,0 +1,61 @@
+---
+
+# TODO: Add comment here, then uncomment the next two lines
+#- name: Install elm npm packages
+#  shell: npm install -g {{ item.name}}@{{ item.version }}
+#  with_items:
+    # - {"name": "elm", "version": "0.18.0"}
+    # - {"name": "elm-format", "version": "0.7.0-exp"}
+    # - {"name": "elm-oracle", "version": "1.1.1"}
+#
+
+# TODO: Comment
+- name: Add ctags
+  blockinfile:
+    path: ~/.ctags
+    create: yes
+    marker: ""
+    block: |
+      --langdef=Elm
+      --langmap=Elm:.elm
+      --regex-Elm=/^ *([[:lower:]][[:alnum:]_]+)[[:blank:]]*:[^:].*->.*/\1/f,function,functions/
+      --regex-Elm=/^ *([[:lower:]][[:alnum:]_]+)[[:blank:]]*:[^:][^-]+$/\1/c,constant,constants/
+      --regex-Elm=/^port +([[:lower:]][[:alnum:]_]+)[[:blank:]]*:[^:]/\1/p,port,ports/
+      --regex-Elm=/^type +([[:upper:]][[:alnum:]_]+)/\1/t,type,types/
+      --regex-Elm=/^type[[:blank:]]+alias[[:blank:]]+([[:upper:]][[:alnum:]_]+)/\1/a,type-alias,type-aliases/
+
+# TODO: Add comment
+- name: Add ctags readme
+  lineinfile:
+    path: ~/.ctags_readme
+    create: yes
+    line: Elm definitions from https://github.com/kbsymanz/ctags-elm
+
+# TODO: Add comment
+- name: Add elm.vim to .vimrc
+  lineinfile:
+    path: ~/.vimrc
+    insertafter: "^Plug 'chriskempson/base16-vim'$"
+    line: Plug 'elmcast/elm-vim'
+
+# TODO: This is now used twice in these playbooks. Turn it into a
+# manager/service or whatever it's called.
+- name: Install Vim plugins
+  shell: vim +PlugInstall +qall
+
+# TODO: Add comment
+# TODO: Consider adding this stuff in as an extra file which is imported.
+- name: Add elm.vim and elm format lines to .vimrc
+  blockinfile:
+    path: ~/.vimrc
+    marker: ""
+    block: |
+      " Elm
+      let g:elm_syntastic_show_warnings = 1
+      let g:elm_format_autosave = 1
+
+# TODO: Add this back in above
+# let g:elm_setup_keybindings = 0
+
+# TODO: Hook elm-oracle (referenced by elm-vim) in once I figure out what it
+# does. Do this before YCM is installed?

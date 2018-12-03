@@ -4,28 +4,34 @@
 # aliases themselves.
 
 
+# TODO: Add bash completion to all aliases which should have it.
+
 # abook
 alias abook='abook --datafile $HOME/.data/contacts/addressbook'
 
 # ag
-alias ag='ag --silent --hidden'
+alias ag='ag --hidden --silent'
 
 # apt
-alias install='sudo apt install'
-alias uninstall='sudo apt purge --autoremove'
+# TODO: Rethink the install/uninstall naming, as install may already be a
+# program. Use "add" instead of "install"?
+alias add='sudo apt install'
+alias remove='sudo apt purge --autoremove'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 
 # aunpack
 # "x" for "extract", to extract files from most archive formats.
-alias x='aunpack'  # "x" for "extract".
+alias x='aunpack'
+
+# cal
+alias cal='cal -3'
 
 # cd
+alias ~='cd'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
-alias ........='cd ../../../..'
-alias ..........='cd ../../../../..'
 
 # clear
 alias c='clear'
